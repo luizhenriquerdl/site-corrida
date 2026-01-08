@@ -1,0 +1,245 @@
+{
+  "corridas": [
+    {
+      "id": 1,
+      "nome": "São Silvestre",
+      "cidade": "São Paulo",
+      "cidadeId": 3550308,
+      "estado": "SP",
+      "estadoId": 35,
+      "distancia": 15,
+      "data": "2024-12-31"
+    },
+    {
+      "id": 2,
+      "nome": "Maratona de São Paulo",
+      "cidade": "São Paulo",
+      "cidadeId": 3550308,
+      "estado": "SP",
+      "estadoId": 35,
+      "distancia": 42,
+      "data": "2025-04-13"
+    },
+    {
+      "id": 3,
+      "nome": "Meia Maratona Internacional de São Paulo",
+      "cidade": "São Paulo",
+      "cidadeId": 3550308,
+      "estado": "SP",
+      "estadoId": 35,
+      "distancia": 21,
+      "data": "2025-02-09"
+    },
+    {
+      "id": 4,
+      "nome": "Maratona do Rio",
+      "cidade": "Rio de Janeiro",
+      "cidadeId": 3304557,
+      "estado": "RJ",
+      "estadoId": 33,
+      "distancia": 42,
+      "data": "2025-06-01"
+    },
+    {
+      "id": 5,
+      "nome": "Meia Maratona do Rio",
+      "cidade": "Rio de Janeiro",
+      "cidadeId": 3304557,
+      "estado": "RJ",
+      "estadoId": 33,
+      "distancia": 21,
+      "data": "2025-05-31"
+    },
+    {
+      "id": 6,
+      "nome": "Corrida das Pontes",
+      "cidade": "Recife",
+      "cidadeId": 2611606,
+      "estado": "PE",
+      "estadoId": 26,
+      "distancia": 10,
+      "data": "2025-03-23"
+    },
+    {
+      "id": 7,
+      "nome": "Maratona de Porto Alegre",
+      "cidade": "Porto Alegre",
+      "cidadeId": 4314902,
+      "estado": "RS",
+      "estadoId": 43,
+      "distancia": 42,
+      "data": "2025-06-08"
+    },
+    {
+      "id": 8,
+      "nome": "Maratona de Curitiba",
+      "cidade": "Curitiba",
+      "cidadeId": 4106902,
+      "estado": "PR",
+      "estadoId": 41,
+      "distancia": 42,
+      "data": "2025-11-10"
+    },
+    {
+      "id": 9,
+      "nome": "Volta da Pampulha",
+      "cidade": "Belo Horizonte",
+      "cidadeId": 3106200,
+      "estado": "MG",
+      "estadoId": 31,
+      "distancia": 18,
+      "data": "2025-12-07"
+    },
+    {
+      "id": 10,
+      "nome": "Maratona de Belo Horizonte",
+      "cidade": "Belo Horizonte",
+      "cidadeId": 3106200,
+      "estado": "MG",
+      "estadoId": 31,
+      "distancia": 42,
+      "data": "2025-07-20"
+    },
+
+    /* ————————————————————————————————
+       A PARTIR DAQUI, MAIS 40 CORRIDAS
+       (Distribuídas pelo Brasil)
+       ———————————————————————————————— */
+
+    {
+      "id": 11,
+      "nome": "Corrida de Salvador",
+      "cidade": "Salvador",
+      "cidadeId": 2927408,
+      "estado": "BA",
+      "estadoId": 29,
+      "distancia": 10,
+      "data": "2025-09-14"
+    },
+    {
+      "id": 12,
+      "nome": "Maratona da Bahia",
+      "cidade": "Salvador",
+      "cidadeId": 2927408,
+      "estado": "BA",
+      "estadoId": 29,
+      "distancia": 42,
+      "data": "2025-09-15"
+    },
+    {
+      "id": 13,
+      "nome": "Corrida de Fortaleza",
+      "cidade": "Fortaleza",
+      "cidadeId": 2304400,
+      "estado": "CE",
+      "estadoId": 23,
+      "distancia": 5,
+      "data": "2025-08-10"
+    },
+    {
+      "id": 14,
+      "nome": "Meia Maratona de Fortaleza",
+      "cidade": "Fortaleza",
+      "cidadeId": 2304400,
+      "estado": "CE",
+      "estadoId": 23,
+      "distancia": 21,
+      "data": "2025-08-11"
+    },
+    {
+      "id": 15,
+      "nome": "Corrida de Manaus",
+      "cidade": "Manaus",
+      "cidadeId": 1302603,
+      "estado": "AM",
+      "estadoId": 13,
+      "distancia": 10,
+      "data": "2025-05-18"
+    },
+    {
+      "id": 16,
+      "nome": "Maratona da Amazônia",
+      "cidade": "Manaus",
+      "cidadeId": 1302603,
+      "estado": "AM",
+      "estadoId": 13,
+      "distancia": 42,
+      "data": "2025-05-19"
+    },
+    {
+      "id": 17,
+      "nome": "Corrida de Goiânia",
+      "cidade": "Goiânia",
+      "cidadeId": 5208707,
+      "estado": "GO",
+      "estadoId": 52,
+      "distancia": 10,
+      "data": "2025-04-06"
+    },
+    {
+      "id": 18,
+      "nome": "Meia Maratona de Goiânia",
+      "cidade": "Goiânia",
+      "cidadeId": 5208707,
+      "estado": "GO",
+      "estadoId": 52,
+      "distancia": 21,
+      "data": "2025-04-07"
+    },
+    {
+      "id": 19,
+      "nome": "Corrida de Brasília",
+      "cidade": "Brasília",
+      "cidadeId": 5300108,
+      "estado": "DF",
+      "estadoId": 53,
+      "distancia": 10,
+      "data": "2025-05-01"
+    },
+    {
+      "id": 20,
+      "nome": "Maratona de Brasília",
+      "cidade": "Brasília",
+      "cidadeId": 5300108,
+      "estado": "DF",
+      "estadoId": 53,
+      "distancia": 42,
+      "data": "2025-05-02"
+    },
+
+    /* ————————————————————————————————
+       MAIS 30 CORRIDAS (RESUMIDAS)
+       ———————————————————————————————— */
+
+    { "id": 21, "nome": "Corrida de Belém", "cidade": "Belém", "cidadeId": 1501402, "estado": "PA", "estadoId": 15, "distancia": 5, "data": "2025-07-12" },
+    { "id": 22, "nome": "Corrida de João Pessoa", "cidade": "João Pessoa", "cidadeId": 2507507, "estado": "PB", "estadoId": 25, "distancia": 10, "data": "2025-08-22" },
+    { "id": 23, "nome": "Corrida de Natal", "cidade": "Natal", "cidadeId": 2408102, "estado": "RN", "estadoId": 24, "distancia": 5, "data": "2025-09-01" },
+    { "id": 24, "nome": "Corrida de Maceió", "cidade": "Maceió", "cidadeId": 2704302, "estado": "AL", "estadoId": 27, "distancia": 10, "data": "2025-10-05" },
+    { "id": 25, "nome": "Corrida de Aracaju", "cidade": "Aracaju", "cidadeId": 2800308, "estado": "SE", "estadoId": 28, "distancia": 5, "data": "2025-11-03" },
+    { "id": 26, "nome": "Corrida de Campo Grande", "cidade": "Campo Grande", "cidadeId": 5002704, "estado": "MS", "estadoId": 50, "distancia": 10, "data": "2025-06-20" },
+    { "id": 27, "nome": "Corrida de Cuiabá", "cidade": "Cuiabá", "cidadeId": 5103403, "estado": "MT", "estadoId": 51, "distancia": 5, "data": "2025-07-18" },
+    { "id": 28, "nome": "Corrida de Vitória", "cidade": "Vitória", "cidadeId": 3205309, "estado": "ES", "estadoId": 32, "distancia": 10, "data": "2025-08-30" },
+    { "id": 29, "nome": "Corrida de Florianópolis", "cidade": "Florianópolis", "cidadeId": 4205407, "estado": "SC", "estadoId": 42, "distancia": 21, "data": "2025-09-14" },
+    { "id": 30, "nome": "Corrida de Joinville", "cidade": "Joinville", "cidadeId": 4209102, "estado": "SC", "estadoId": 42, "distancia": 10, "data": "2025-10-12" },
+    { "id": 31, "nome": "Corrida de Blumenau", "cidade": "Blumenau", "cidadeId": 4202404, "estado": "SC", "estadoId": 42, "distancia": 5, "data": "2025-11-09" },
+    { "id": 32, "nome": "Corrida de Londrina", "cidade": "Londrina", "cidadeId": 4113700, "estado": "PR", "estadoId": 41, "distancia": 10, "data": "2025-07-27" },
+    { "id": 33, "nome": "Corrida de Maringá", "cidade": "Maringá", "cidadeId": 4115200, "estado": "PR", "estadoId": 41, "distancia": 5, "data": "2025-08-17" },
+    { "id": 34, "nome": "Corrida de Santos", "cidade": "Santos", "cidadeId": 3548500, "estado": "SP", "estadoId": 35, "distancia": 10, "data": "2025-09-21" },
+    { "id": 35, "nome": "Corrida de Campinas", "cidade": "Campinas", "cidadeId": 3509502, "estado": "SP", "estadoId": 35, "distancia": 5, "data": "2025-10-19" },
+    { "id": 36, "nome": "Corrida de Ribeirão Preto", "cidade": "Ribeirão Preto", "cidadeId": 3543402, "estado": "SP", "estadoId": 35, "distancia": 10, "data": "2025-11-16" },
+    { "id": 37, "nome": "Corrida de Sorocaba", "cidade": "Sorocaba", "cidadeId": 3552205, "estado": "SP", "estadoId": 35, "distancia": 5, "data": "2025-12-07" },
+    { "id": 38, "nome": "Corrida de Uberlândia", "cidade": "Uberlândia", "cidadeId": 3170206, "estado": "MG", "estadoId": 31, "distancia": 10, "data": "2025-07-06" },
+    { "id": 39, "nome": "Corrida de Juiz de Fora", "cidade": "Juiz de Fora", "cidadeId": 3136702, "estado": "MG", "estadoId": 31, "distancia": 5, "data": "2025-08-03" },
+    { "id": 40, "nome": "Corrida de Montes Claros", "cidade": "Montes Claros", "cidadeId": 3143302, "estado": "MG", "estadoId": 31, "distancia": 10, "data": "2025-09-28" },
+    { "id": 41, "nome": "Corrida de Teresina", "cidade": "Teresina", "cidadeId": 2211001, "estado": "PI", "estadoId": 22, "distancia": 5, "data": "2025-10-04" },
+    { "id": 42, "nome": "Corrida de Palmas", "cidade": "Palmas", "cidadeId": 1721000, "estado": "TO", "estadoId": 17, "distancia": 10, "data": "2025-11-23" },
+    { "id": 43, "nome": "Corrida de Boa Vista", "cidade": "Boa Vista", "cidadeId": 1400100, "estado": "RR", "estadoId": 14, "distancia": 5, "data": "2025-12-14" },
+    { "id": 44, "nome": "Corrida de Porto Velho", "cidade": "Porto Velho", "cidadeId": 1100205, "estado": "RO", "estadoId": 11, "distancia": 10, "data": "2025-07-13" },
+    { "id": 45, "nome": "Corrida de Macapá", "cidade": "Macapá", "cidadeId": 1600303, "estado": "AP", "estadoId": 16, "distancia": 5, "data": "2025-08-09" },
+    { "id": 46, "nome": "Corrida de São Luís", "cidade": "São Luís", "cidadeId": 2111300, "estado": "MA", "estadoId": 21, "distancia": 10, "data": "2025-09-06" },
+    { "id": 47, "nome": "Corrida de Vitória da Conquista", "cidade": "Vitória da Conquista", "cidadeId": 2933307, "estado": "BA", "estadoId": 29, "distancia": 5, "data": "2025-10-11" },
+    { "id": 48, "nome": "Corrida de Petrolina", "cidade": "Petrolina", "cidadeId": 2611101, "estado": "PE", "estadoId": 26, "distancia": 10, "data": "2025-11-02" },
+    { "id": 49, "nome": "Corrida de Feira de Santana", "cidade": "Feira de Santana", "cidadeId": 2910800, "estado": "BA", "estadoId": 29, "distancia": 5, "data": "2025-12-05" },
+    { "id": 50, "nome": "Corrida de Anápolis", "cidade": "Anápolis", "cidadeId": 5201108, "estado": "GO", "estadoId": 52, "distancia": 10, "data": "2025-07-25" }
+  ]
+}

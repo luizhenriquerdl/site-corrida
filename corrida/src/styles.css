@@ -1,0 +1,75 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(120deg, #1e90ff, #00bfff);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Cabeçalho */
+header {
+  background: #fff;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1e90ff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Formulário de busca */
+form {
+  margin: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: 2px solid #1e90ff;
+  border-radius: 5px;
+  width: 250px;
+}
+
+button {
+  padding: 10px 15px;
+  background: #1e90ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #104e8b;
+}
+
+/* Lista de corridas */
+#resultados {
+  margin-top: 20px;
+  width: 80%;
+  max-width: 600px;
+}
+
+.corrida {
+  background: #fff;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.corrida h3 {
+  color: #1e90ff;
+}

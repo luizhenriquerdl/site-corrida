@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Corridas de Rua no Brasil</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <meta name="description" content="Consulte corridas de rua no Brasil por estado, cidade, distância e data.">
+</head>
+<body>
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="logo">
+            <span class="logo-icon"></span>
+            <span class="logo-text">Corridas de Rua</span>
+        </div>
+        <nav class="nav">
+            <a href="#/" class="nav-link">Home</a>
+            <a href="#/sobre" class="nav-link">Sobre</a>
+            <a href="#/contato" class="nav-link">Contato</a>
+        </nav>
+    </div>
+</header>
+
+<main id="app" class="container">
+    <!-- Home view -->
+    <section id="home-view" class="view active">
+        <h1>Corridas de rua no Brasil</h1>
+
+        <div class="filters">
+            <div class="search-group">
+                <label for="search">Buscar corrida</label>
+                <input type="text" id="search" placeholder="Nome da corrida ou cidade" />
+            </div>
+
+
+                    </select>
+                </div>
+
+                <div class="campo">
+    <label for="estado">Estado</label>
+    <select id="estado">
+      <option value="">Carregando estados...</option>
+    </select>
+  </div>
+
+  <div class="campo">
+    <label for="cidade">Cidade</label>
+    <select id="cidade" disabled>
+      <option value="">Selecione um estado primeiro</option>
+    </select>
+  </div>
+
+  <div class="status" id="status"></div>
+
+  <script>
+    const URL_ESTADOS = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome';
+    const URL_MUNICIPIOS_POR_ESTADO = (ufId) =>
+      `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufId}/municipios`;
+
+    async function carregarEstados() {
+      const estadoSel = document.getElementById('estado');
+      const status = document.getElementById('status');
+
+      try {
+        const resp = await fetch(URL_ESTADOS);
+        if (!resp.ok) throw new Error('Falha ao obter estados do IBGE');
+        const estados = await resp.json();
+
+        estadoSel.innerHTML = '<option value="">Selecione um estado</option>';
+
+        estados.forEach((uf) => {
+          const opt = document.createElement('option');
+          opt.value = uf.id;            // ID do estado (UF)
+          opt.textContent = `${uf.nome} (${uf.sigla})`;
+          estadoSel.appendChild(opt);
+        });
+
+        status.textContent = `Carregados ${estados.length} estados.`;
+      } catch (err) {
+        estadoSel.innerHTML = '<option value="">Erro ao carregar estados</option>';
+        status.textContent = `Erro: ${err.message}`;
+      }
+    }
+
+    async function carregarCidadesPorEstado(ufId) {
+      const cidadeSel = document.getElementById('cidade');
+      const status = document.getElementById('status');
+
+      cidadeSel.disabled = true;
+      cidadeSel.innerHTML = '<option value="">Carregando cidades...</option>';
+
+      try {
+        const resp = await fetch(URL_MUNICIPIOS_POR_ESTADO(ufId));
+        if (!resp.ok) throw new Error('Falha ao obter municípios do IBGE');
+        const municipios = await resp.json();
+
+        municipios.sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'));
+
+        cidadeSel.innerHTML = '<option value="">Selecione uma cidade</option>';
+        const fragment = document.createDocumentFragment();
+
+        municipios.forEach((mun) => {
+          const opt = document.createElement('option');
+          opt.value = mun.id; // ID do município
+          opt.textContent = mun.nome;
+          fragment.appendChild(opt);
+        });
+
+        cidadeSel.appendChild(fragment);
+        cidadeSel.disabled = false;
+        status.textContent = `Carregadas ${municipios.length} cidades para o estado selecionado.`;
+      } catch (err) {
+        cidadeSel.innerHTML = '<option value="">Erro ao carregar cidades</option>';
+        status.textContent = `Erro: ${err.message}`;
+      }
+    }
+
+    document.getElementById('estado').addEventListener('change', (e) => {
+      const ufId = e.target.value;
+      const cidadeSel = document.getElementById('cidade');
+
+      if (!ufId) {
+        cidadeSel.disabled = true;
+        cidadeSel.innerHTML = '<option value="">Selecione um estado primeiro</option>';
+        return;
+      }
+      carregarCidadesPorEstado(ufId);
+    });
+
+    carregarEstados();
+  </script>
+</body>
+</html>
+
+
+</select>
+</div>
+
+                <div class="filter-group">
+                    <label for="distance">Distância</label>
+                    <select id="distance">
+                        <option value="">Todas</option>
+                        <option value="5">5 km</option>
+                        <option value="10">10 km</option>
+                        <option value="21">21 km (Meia)</option>
+                        <option value="42">42 km (Maratona)</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="monthYear">Mês/Ano</label>
+                    <input type="month" id="monthYear" />
+                </div>
+            </div>
+
+            <div class="filter-actions">
+                <button id="clearFilters" class="btn secondary">Buscar</button>
+            </div>
+        </div>
+
+        <div id="stats" class="stats"></div>
+
+        <div id="eventsList" class="cards"></div>
+
+        <div id="pagination" class="pagination"></div>
+    </section>
+
+    <!-- Details view -->
+    <section id="details-view" class="view">
+        <button class="btn link" id="backToHome">← Voltar</button>
+        <div id="eventDetails" class="event-details"></div>
+    </section>
+
+    <!-- Sobre view -->
+    <section id="sobre-view" class="view">
+        <h2>Sobre</h2>
+        <p>Este projeto centraliza corridas de rua no Brasil, permitindo busca por estado, cidade, distância e data. Organizações podem solicitar inclusão.</p>
+    </section>
+
+    <!-- Contato view -->
+    <section id="contato-view" class="view">
+        <h2>Contato</h2>
+        <p>Quer cadastrar uma corrida ou sugerir melhorias? Envie um e-mail para luiiizhenrique_@outlook.com.</p>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <p>© <span id="year"></span> Corridas de Rua — Brasil</p>
+        <p><small></small></p>
+    </div>
+</footer>
+
+<script src="corrida.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Estados e Cidades do Brasil</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    .campo { margin-bottom: 2px; }
+    label { display: block; margin-bottom: 2px; }
+    select { width: 320px; padding: 2px; }
+    .status { margin-top: px; color: #555; }
+  </style>
+</head>
+<body>
+
+  <script>
+    const URL_ESTADOS = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome';
+    const URL_MUNICIPIOS_POR_ESTADO = (ufId) =>
+      `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufId}/municipios`;
+
+    async function carregarEstados() {
+      const estadoSel = document.getElementById('estado');
+      const status = document.getElementById('status');
+
+      try {
+        const resp = await fetch(URL_ESTADOS);
+        if (!resp.ok) throw new Error('Falha ao obter estados do IBGE');
+        const estados = await resp.json();
+
+        estadoSel.innerHTML = '<option value="">Selecione um estado</option>';
+
+        estados.forEach((uf) => {
+          const opt = document.createElement('option');
+          opt.value = uf.id;            // ID do estado (UF)
+          opt.textContent = `${uf.nome} (${uf.sigla})`;
+          estadoSel.appendChild(opt);
+        });
+
+        status.textContent = `Carregados ${estados.length} estados.`;
+      } catch (err) {
+        estadoSel.innerHTML = '<option value="">Erro ao carregar estados</option>';
+        status.textContent = `Erro: ${err.message}`;
+      }
+    }
+
+    async function carregarCidadesPorEstado(ufId) {
+      const cidadeSel = document.getElementById('cidade');
+      const status = document.getElementById('status');
+
+      cidadeSel.disabled = true;
+      cidadeSel.innerHTML = '<option value="">Carregando cidades...</option>';
+
+      try {
+        const resp = await fetch(URL_MUNICIPIOS_POR_ESTADO(ufId));
+        if (!resp.ok) throw new Error('Falha ao obter municípios do IBGE');
+        const municipios = await resp.json();
+
+        municipios.sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'));
+
+        cidadeSel.innerHTML = '<option value="">Selecione uma cidade</option>';
+        const fragment = document.createDocumentFragment();
+
+        municipios.forEach((mun) => {
+          const opt = document.createElement('option');
+          opt.value = mun.id; // ID do município
+          opt.textContent = mun.nome;
+          fragment.appendChild(opt);
+        });
+
+        cidadeSel.appendChild(fragment);
+        cidadeSel.disabled = false;
+        status.textContent = `Carregadas ${municipios.length} cidades para o estado selecionado.`;
+      } catch (err) {
+        cidadeSel.innerHTML = '<option value="">Erro ao carregar cidades</option>';
+        status.textContent = `Erro: ${err.message}`;
+      }
+    }
+
+    document.getElementById('estado').addEventListener('change', (e) => {
+      const ufId = e.target.value;
+      const cidadeSel = document.getElementById('cidade');
+
+      if (!ufId) {
+        cidadeSel.disabled = true;
+        cidadeSel.innerHTML = '<option value="">Selecione um estado primeiro</option>';
+        return;
+      }
+      carregarCidadesPorEstado(ufId);
+    });
+
+    carregarEstados();
+  </script>
+</body>
+</html>
